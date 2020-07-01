@@ -19,8 +19,8 @@ router.get(
 
 //@desc     Logout user
 //@route    /auth/logout
-router.get('logout', (req, res) => {
-    // the passport middleware has a logout object
+// the passport middleware has a logout method on the request object - this is copy-paste from website
+router.get('/logout', (req, res) => {
     req.logout()
     res.redirect('/')
 })
