@@ -1,10 +1,12 @@
 const path = require('path')
 const express = require('express')
+const mongoose = require('mongoose')
 const dotenv = require('dotenv')
 const morgan = require('morgan')
 const exphbs = require('express-handlebars')
 const passport = require('passport')
 const session = require('express-session')
+const MongoStore = require('connect-mongo')(session)
 const connectDB = require('./config/db')
 
 //Load config file where all global variables will live
@@ -32,7 +34,8 @@ app.set('view engine', '.hbs');
 app.use(session({
     secret: 'keyboard cat',
     resave: false,              // means we don't want to save a session if nothing modified
-    saveUninitialized: false    // false means don't create a session until something stored
+    saveUninitialized: false,    // false means don't create a session until something stored
+    store: new MongoStore({ mongooseConnection: mongoose.connection })
     //cookie: { secure: true }    cookie won't work without https...
   }))
 

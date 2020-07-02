@@ -1,9 +1,10 @@
 const express = require('express')
 const router = express.Router()
+const { ensureAuth, ensureGuest } = require('../middleware/auth')  // ../ = 1st navigating up one level 
 
 //@description  Login/landing page
 //@route        GET /
-router.get('/', (req, res) => {
+router.get('/', ensureGuest, (req, res) => {
     //send text to client
     res.render('login.hbs', {
         layout: 'login'
@@ -12,7 +13,7 @@ router.get('/', (req, res) => {
 
 //@description  Dashboard
 //@route        GET /dashboard
-router.get('/dashboard', (req, res) => {
+router.get('/dashboard', ensureAuth, (req, res) => {
     //send text to client
     res.render('dashboard.hbs')
 })
