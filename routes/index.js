@@ -13,11 +13,20 @@ router.get('/', ensureGuest, (req, res) => {
 
 //@description  Dashboard
 //@route        GET /dashboard
-router.get('/dashboard', ensureAuth, (req, res) => {
-    //send text to client
-    res.render('dashboard.hbs', {
-        name: req.user.firstName
-    })
+router.get('/dashboard', ensureAuth, async (req, res) => {
+    try {
+        const stories = await Story.find({ user: req.user.id }).lean()
+        //send text to client
+        res.render('dashboard.hbs', {
+            name: req.user.firstName,
+            stories
+        })
+    } catch (err) {
+        console.error(err)
+        res.render('error/500')
+    }
+    
+    
 })
 
 module.exports = router
