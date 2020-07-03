@@ -2,6 +2,8 @@ const express = require('express')
 const router = express.Router()
 const { ensureAuth, ensureGuest } = require('../middleware/auth')  // ../ = 1st navigating up one level 
 
+const Story = require('../models/Story')
+
 //@description  Login/landing page
 //@route        GET /
 router.get('/', ensureGuest, (req, res) => {
