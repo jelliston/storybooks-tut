@@ -17,7 +17,7 @@
                 <tr>
                     {{! since we're in the loop it knows the '_id' and 'title' belongs to stories}}
                     <td><a href="/stories/{{_id}}"></a>{{title}}</td>
-                    <td>{{createdAt}}</td> {{! will format this later}}
+                    <td>{{formatDate createdAt 'MMMM Do YYYY, h:mm:ss a'}}</td> {{!Check moment.js documentation for other formats}}
                     <td><span class="dash-status">{{status}}</span></td>
                     <td></td>
                 </tr>
