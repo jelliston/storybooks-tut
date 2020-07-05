@@ -25,4 +25,25 @@ router.post('/', ensureAuth, async (req, res) => {
    } 
 })
 
+//@desc         Show all stories (fetch and render)
+//@route        GET /stories  
+// since we have /stories in app.js where we link all of our routes 
+router.get('/', ensureAuth, async (req, res) => {    //needs to be async since we're dealing with mongoose (with the db)
+    try {
+        //fetch all public stories and populate with the user model
+        const stories = await Story.find({ status: 'public' })
+            .populate('user')
+            .sort({ createdAt: 'desc' })
+            .lean()                                         // add lean so we can pass into template
+
+    res.render('stories/index.hbs', { 
+        stories, 
+    })
+
+    } catch (err) {
+        console.error(err)
+        res.render('error/500')
+    }
+})
+
 module.exports = router

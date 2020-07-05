@@ -1,0 +1,32 @@
+<h1>Stories</h1>
+<div class="row">
+    {{#each stories}}
+    {{!--Here we will style cards that hold each story, title and a portion of the body--}}
+    <div class="col s12 m4">
+        <div class="card">
+            <div class="card-image">
+                {{!--If it belongs to the user who is signed in, show an icon image, use handlebar helper --}}
+                {{!-- todo: editIcon--}}
+            </div>
+            <div class="card-content center-align">
+                <h5>{{title}}</h5>
+                {{!-- The body will be too long for a card, so we need a helper to shorten, and also to strip out paragraph tags--}}
+                <p>{{body}}</p>
+                <br>
+                <div class="chip">  {{!--in Materialize a chip is like a badge--}}
+                    <img src="{{user.image}}" alt="">
+                    {{!--Below route will show all stories of user--}}
+                    <a href="/stories/user/{{user._id}}">{{user.displayName}}</a>
+                </div>
+            </div>
+            <div class="card-action center-align">
+                <a href="/stories/{{_id}}" class="btn grey">Read More</a>
+            </div>
+        </div>
+    </div>
+
+    {{!-- You don't need an if here, {{else}} handles the case where there are no stories--}}
+    {{else}}   
+        <p>No stories to display</p>
+    {{/each}}
+</div>
