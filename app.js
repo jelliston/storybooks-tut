@@ -21,6 +21,10 @@ connectDB()
 //initialize app with express
 const app = express() 
 
+//Body Parser middleware - it will accept urlencoded and json
+app.use(express.urlencoded({ extended: false }))
+app.use(express.json())
+
 //Make sure logger only runs in development
 if (process.env.NODE_ENV === 'development') {
     app.use(morgan('dev'))
