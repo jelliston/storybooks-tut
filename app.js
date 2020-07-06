@@ -31,10 +31,22 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 // handlebars helpers
-const { formatDate, truncate, stripTags } = require('./helpers/hbs')
+const { formatDate, truncate, stripTags, editIcon } = require('./helpers/hbs')
 
 // Handlebars set up; also use .hbs file ext instead of .handlebars for convenience
-app.engine('.hbs', exphbs({ helpers: { formatDate, truncate, stripTags }, defaultLayout: 'main', extname: '.hbs' }));
+app.engine(
+    '.hbs', 
+    exphbs({ 
+        helpers: { 
+            formatDate, 
+            truncate, 
+            stripTags, 
+            editIcon 
+        }, 
+        defaultLayout: 'main', 
+        extname: '.hbs' 
+    })
+);
 app.set('view engine', '.hbs');
 
 // Express-session middleware
@@ -49,6 +61,13 @@ app.use(session({
 // Passport middleware
 app.use(passport.initialize())
 app.use(passport.session())
+
+// Set global variable 
+// doing this should allow me to access the logged-in-user from our templates
+app.use(function (req, res, next) {
+    res.locals.user = req.user || null
+    next()
+})
 
 // Set static folder
 app.use(express.static(path.join(__dirname, 'public')))

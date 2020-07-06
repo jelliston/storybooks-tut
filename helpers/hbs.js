@@ -20,5 +20,19 @@ module.exports = {
     //this helper looks for anything in <html> tags and replaces it with nothing
     stripTags: function (input) {
         return input.replace(/<(?:.|\n)*?>/gm, '')
-    }
+    },
+
+    // floating is a Materialize class for the button
+    editIcon: function (storyUser, loggedUser, storyID, floating = true) {   
+        if (storyUser._id.toString() == loggedUser._id.toString()) {
+            if (floating) {
+                return `<a href="/stories/edit/${storyID}" class="btn-floating halfway-fab blue"><i class="fas fa-edit fa-small"></i></a>`
+            } else {
+                return `<a href="/stories/edit/${storyID}"><i class="fas fa-edit"></i></a>`
+            }
+        } else {
+            // we won't see the icon if the storyUser isn't the same as the loggedUser
+            return ''
+        }
+    },
 }
