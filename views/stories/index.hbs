@@ -10,8 +10,8 @@
             </div>
             <div class="card-content center-align">
                 <h5>{{title}}</h5>
-                {{!-- The body will be too long for a card, so we need a helper to shorten, and also to strip out paragraph tags--}}
-                <p>{{body}}</p>
+                {{!-- using helpers to shorten, and also to strip out paragraph tags--}}
+                <p>{{stripTags (truncate body 150)}}</p> {{!--handlebars will complete whats in the parens first then move outside--}}
                 <br>
                 <div class="chip">  {{!--in Materialize a chip is like a badge--}}
                     <img src="{{user.image}}" alt="">
