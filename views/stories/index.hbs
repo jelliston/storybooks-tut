@@ -7,7 +7,7 @@
             <div class="card-image">
                 {{!--If it belongs to the user who is signed in, show an icon image, use handlebar helper --}}
                 {{!--If I just pass in 'user' here, it will pertain to the stories.user b/c we're in the loop, to access the logged in user I need to set an express global variable and then go up one level using ../user--}}
-                {{!--Need to use triple braces in order to parse--}}
+                {{!--Need to use triple braces if you want to parse html with handlebars--}}
                 {{{editIcon user ../user _id}}}
             </div>
             <div class="card-content center-align">

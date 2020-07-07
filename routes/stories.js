@@ -21,7 +21,7 @@ router.post('/', ensureAuth, async (req, res) => {
         res.redirect('/dashboard')
    } catch (err) {
        console.error(err)
-       res.render('error/500')
+       res.render('error/500.hbs')
    } 
 })
 
@@ -42,7 +42,30 @@ router.get('/', ensureAuth, async (req, res) => {    //needs to be async since w
 
     } catch (err) {
         console.error(err)
-        res.render('error/500')
+        res.render('error/500.hbs')
+    }
+})
+
+//@desc         Show edit page
+//@route        GET /stories/edit/:id
+router.get('/edit/:id', ensureAuth, async (req, res) => {
+    // find one story whose id matches the id of the currently logged in user
+    const story = await Story.findOne({
+        _id: req.params.id
+    }).lean()
+    
+    //check to see if the story is there
+    if (!story) {
+        return res.render('error/404.hbs')
+    }
+
+    // we don't want users to be able to edit stories that aren't theirs
+    if (story.user != req.user.id) {
+        res.redirect('/stories')
+    } else {
+        res.render('stories/edit.hbs', {
+            story,
+        })
     }
 })
 
