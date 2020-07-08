@@ -46,6 +46,29 @@ router.get('/', ensureAuth, async (req, res) => {    //needs to be async since w
     }
 })
 
+//@desc         Show single story
+//@route        GET /stories/:id
+router.get('/:id', ensureAuth, async (req, res) => {
+    //fetch story from database
+    try {
+      let story = await Story.findById(req.params.id)
+      .populate('user')
+      .lean()
+      
+      if (!story) {
+        return res.render('error/404.hbs')
+      }
+
+      res.render('stories/show.hbs', {
+          story
+      })
+    } catch (err) {
+        console.error(err)
+        res.render('error/404.hbs')
+    }
+})
+
+
 //@desc         Show edit page
 //@route        GET /stories/edit/:id
 router.get('/edit/:id', ensureAuth, async (req, res) => {
