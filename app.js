@@ -4,6 +4,7 @@ const mongoose = require('mongoose')
 const dotenv = require('dotenv')
 const morgan = require('morgan')
 const exphbs = require('express-handlebars')
+const methodOverride = require('method-override')
 const passport = require('passport')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
@@ -24,6 +25,20 @@ const app = express()
 //Body Parser middleware - it will accept urlencoded and json
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
+
+// Method override for PUT and DELETE requests
+app.use(
+    methodOverride(function (req, res) {
+        // it will check the request body and look for the method, 
+        // replace it with whatever method we add (PUT or DELETE) and then delete the original method
+        if (req.body && typeof req.body === 'object' && '_method' in req.body) {
+        // look in urlencoded POST bodies and delete it
+        let method = req.body._method
+        delete req.body._method
+        return method
+        }
+    })
+)
 
 //Make sure logger only runs in development
 if (process.env.NODE_ENV === 'development') {

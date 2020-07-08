@@ -69,4 +69,34 @@ router.get('/edit/:id', ensureAuth, async (req, res) => {
     }
 })
 
+//@desc         Update story
+//@route        PUT /stories/:id
+router.put('/:id', ensureAuth, async (req, res) => {
+    //check to see if the story is there (req.params.id gets the id from the url)
+    let story = await Story.findById(req.params.id).lean()
+    
+    // if there is no story
+    if (!story) {
+       return res.render('error/404.hbs')
+    }
+
+    // if the story isn't the logged in users, then redirect
+    if (story.user != req.user.id) {
+        res.redirect('/stories')
+    // if it IS their story, then update the story (using mongoose method)
+    } else {
+        //update the story id, with the content from req.body
+        //as third arg add mongoose options 
+        story = await Story.findOneAndUpdate({ _id: req.params.id }, req.body, {
+            //will create new if blank/not there
+            new: true,
+            //will run mongoose validators
+            runValidators: true,
+        })
+
+        //redirect to dashboard when finished
+        res.redirect('/dashboard')
+    }
+})
+
 module.exports = router
