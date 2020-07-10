@@ -4,12 +4,13 @@
   "description": "App to create public and private stories",
   "main": "app.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=production node app", 
-    "dev": "cross-env NODE_ENV=development nodemon app" 
+    "start": "cross-env NODE_ENV=production node app",
+    "dev": "cross-env NODE_ENV=development nodemon app"
   },
   "author": "Joel Elliston",
   "license": "MIT",
   "dependencies": {
+    "@microsoft/microsoft-graph-client": "^2.0.0",
     "connect-mongo": "^3.2.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
@@ -20,8 +21,10 @@
     "mongoose": "^5.9.20",
     "morgan": "^1.10.0",
     "passport": "^0.4.1",
+    "passport-azure-ad": "^4.2.1",
     "passport-azure-ad-oauth2": "0.0.4",
-    "passport-google-oauth20": "^2.0.0"
+    "passport-google-oauth20": "^2.0.0",
+    "simple-oauth2": "^4.1.0"
   },
   "devDependencies": {
     "cross-env": "^7.0.2",
