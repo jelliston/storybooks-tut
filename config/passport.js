@@ -1,5 +1,4 @@
 const GoogleStrategy = require('passport-google-oauth20').Strategy
-const OIDCStrategy = require('passport-azure-ad').OIDCStrategy
 const mongoose = require('mongoose')
 const User = require('../models/User')
 
@@ -40,23 +39,6 @@ module.exports = function (passport) {
         )
    ),
 
-   passport.use(
-       new OIDCStrategy(
-        {
-        identityMetadata: `${process.env.AZURE_AUTHORITY}${process.env.AZURE_OAUTH_ID_METADATA}`,
-        clientID: process.env.AZURE_CLIENT_ID,
-        responseType: 'code id_token',
-        responseMode: 'form_post',
-        redirectUrl: process.env.AZURE_REDIRECT_URI,
-        allowHttpForRedirectUrl: true,
-        clientSecret: process.env.AZURE_CLIENT_SECRET,
-        validateIssuer: false,
-        passReqToCallback: false,
-        scope: process.env.AZURE_SCOPES.split(' ')
-        },
-        signInComplete  // need to add this in from passport website next
-        )
-    ),
 
     //comes from passport documentation (serialize and deserialize users) - changed to arrow functions
     passport.serializeUser((user, done) => {
