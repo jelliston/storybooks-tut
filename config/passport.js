@@ -45,7 +45,7 @@ module.exports = function (passport) {
         {
         clientID: process.env.AZURE_CLIENT_ID,
         clientSecret: process.env.AZURE_CLIENT_SECRET,
-        callbackURL: '/auth/microsoft/callback'
+        callbackURL: 'http://localhost:3000/auth/microsoft/callback'
         },
         async (accessToken, refreshToken, profile, done) => {
             //these must align with the user schema we created and with the data google gives us
