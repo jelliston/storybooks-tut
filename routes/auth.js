@@ -17,6 +17,26 @@ router.get(
     }
 )
 
+//@desc     Auth with Microsoft
+//@route    GET /auth/microsoft
+router.get('/microsoft',
+  passport.authenticate('microsoft', { scope: ['User.Read'] }),
+  function (req, res) {
+    // The request will be redirected to Microsoft for authentication, so this
+    // function will not be called.
+  });
+
+//@description  Microsoft Auth Callback
+//@route        GET /auth/microsoft/callback
+router.get(
+    '/microsoft/callback', 
+    passport.authenticate('microsoft', { failureRedirect: '/' }),
+    (req, res) => {
+    // successful authentication, redirect to dashboard
+    res.redirect('/dashboard')
+    }
+)
+
 //@desc     Logout user
 //@route    /auth/logout
 // the passport middleware has a logout method on the request object - this is copy-paste from website
