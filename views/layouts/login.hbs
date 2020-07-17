@@ -8,27 +8,31 @@
     <title>StoryBooks Login</title>
 </head>
 <body>
-    <div class="container login-container">
-       <div class="card">
-           <div class="card-content">
-                {{{body}}} 
-           </div>
-       </div>
-    </div>
-    
-    <div class="container  center-align">
-        <a href="#terms" class="btn orange modal-trigger">Terms & Conditions</a>
-
-        <div class="modal" id="terms">
-            <div class="modal-content">
-                <h4>Terms & Conditions</h4>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-            </div>
-            <div class="modal-footer">
-                <a href="#" class="btn modal-close orange">Agree & Close</a>
+    <main>
+        <div class="container login-container">
+            <div class="card">
+                <div class="card-content">
+                        {{{body}}} 
+                </div>
             </div>
         </div>
-    </div>
+        
+        <div class="container  center-align">
+            <a href="#terms" class="btn orange modal-trigger">Terms & Conditions</a>
+
+            <div class="modal" id="terms">
+                <div class="modal-content">
+                    <h4>Terms & Conditions</h4>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" class="btn modal-close orange">Agree & Close</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    {{> _footer}} 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
