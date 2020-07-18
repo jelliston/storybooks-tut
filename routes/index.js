@@ -31,4 +31,13 @@ router.get('/dashboard', ensureAuth, async (req, res) => {
     
 })
 
+//@description  About page
+//@route        GET /about
+router.get('/about', ensureAuth, (req, res) => {
+    //send text to client
+    res.render('about.hbs', {
+        layout: 'about'
+    })
+})
+
 module.exports = router
