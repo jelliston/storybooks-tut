@@ -74,10 +74,32 @@
     </div>
 
     <!-- services / tabs -->
-    <div class="container">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium ipsum nobis cum recusandae vero corrupti maiores culpa, reiciendis iste dolores quibusdam sunt corporis amet porro quidem placeat voluptate inventore. Saepe?</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium ipsum nobis cum recusandae vero corrupti maiores culpa, reiciendis iste dolores quibusdam sunt corporis amet porro quidem placeat voluptate inventore. Saepe?</p>
-    </div>
+    <section class="container section" id="services">
+        <div class="row">
+            <div class="col s12 l4">
+                <h2 class="indigo-text text-darken-4">What I do</h2>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus amet, repellat explicabo deleniti cum maxime aperiam itaque, asperiores provident in necessitatibus quisquam omnis fuga facilis blanditiis fugiat tenetur eum ullam.</p>
+            </div>
+            <div class="col s12 l6 offset-l2">
+                <ul class="tabs">
+                    <li class="tab col s6">
+                        <a href="#photography" class="indigo-text text-darken-4">Photography</a>
+                    </li>
+                    <li class="tab col s6">
+                        <a href="#editing" class="indigo-text text-darken-4">Editing</a>
+                    </li>
+                </ul>
+                <div class="col s12" id="photography">
+                    <p class="flow-text indigo-text text-darken-4">PHOTOGRAPHY</p>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima maxime ullam molestiae dolore nesciunt omnis mollitia ex aut quos, et accusantium porro facere dolorem sit itaque suscipit rem numquam eaque!</p>
+                </div>
+                <div class="col s12" id="editing">
+                    <p class="flow-text indigo-text text-darken-4">EDITING</p>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima maxime ullam molestiae dolore nesciunt omnis mollitia ex aut quos, et accusantium porro facere dolorem sit itaque suscipit rem numquam eaque!</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- parallax 2 -->
     <div class="parallax-container">
@@ -104,7 +126,9 @@
         document.querySelectorAll('.parallax').forEach(function(elems, options) {
             M.Parallax.init(elems);
         })
-        //M.Parallax.init(document.querySelector('.parallax'))
+        document.querySelectorAll('.tabs').forEach(function(elems, options) {
+            M.Tabs.init(elems);
+        })
     </script>
 </body>
 </html>

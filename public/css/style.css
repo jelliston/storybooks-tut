@@ -42,6 +42,15 @@ header {
     min-height: 1000px;
 }
 
+.tabs .indicator{
+    background-color: #1a237e;
+}
+
+/* can inspect page to see which bits to highlight with css */
+.tabs .tab a:focus, .tabs .tab a:focus.active{
+    background: transparent;
+}
+
 @media screen and (max-width: 670px){
     header{
         min-height: 500px;
