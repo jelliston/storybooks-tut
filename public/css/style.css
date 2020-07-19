@@ -34,3 +34,16 @@ body {
 main {
     flex: 1 0 auto;
 }
+
+header {
+    background: url(/img/man.jpg);
+    background-size: cover;
+    background-position: center;
+    min-height: 1000px;
+}
+
+@media screen and (max-width: 670px){
+    header{
+        min-height: 500px;
+    }
+}
