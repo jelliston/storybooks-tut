@@ -13,7 +13,7 @@
     <header>
         <nav class="nav-wrapper transparent">
             <div class="container">
-                <a href="#!" class="brand-logo"><b>StoryBooks</b></a>
+                <a href="/" class="brand-logo"><b>StoryBooks</b></a>
                 <a href="#!" class="sidenav-trigger hide-on-large-only" data-target="mobile-links">
                     <i class="fas fa-bars"></i>
                 </a>
@@ -66,13 +66,31 @@
         </div>
     </section>
 
-    <!-- parallax -->
+    <!-- parallax 1 -->
+    <div class="parallax-container">
+        <div class="parallax">
+            <img src="/img/street.jpg" alt="" class="responsive-img">
+        </div>
+    </div>
 
     <!-- services / tabs -->
+    <div class="container">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium ipsum nobis cum recusandae vero corrupti maiores culpa, reiciendis iste dolores quibusdam sunt corporis amet porro quidem placeat voluptate inventore. Saepe?</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium ipsum nobis cum recusandae vero corrupti maiores culpa, reiciendis iste dolores quibusdam sunt corporis amet porro quidem placeat voluptate inventore. Saepe?</p>
+    </div>
 
-    <!-- parallax -->
-
+    <!-- parallax 2 -->
+    <div class="parallax-container">
+        <div class="parallax">
+            <img src="/img/stars.jpg" alt="" class="responsive-img">
+        </div>
+    </div>
+    
     <!-- contact form -->
+    <div class="container">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium ipsum nobis cum recusandae vero corrupti maiores culpa, reiciendis iste dolores quibusdam sunt corporis amet porro quidem placeat voluptate inventore. Saepe?</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium ipsum nobis cum recusandae vero corrupti maiores culpa, reiciendis iste dolores quibusdam sunt corporis amet porro quidem placeat voluptate inventore. Saepe?</p>
+    </div>
 
     <!-- footer -->
 
@@ -83,6 +101,10 @@
         document.querySelectorAll('.materialboxed').forEach(function(elems, options) {
             M.Materialbox.init(elems);
         })
+        document.querySelectorAll('.parallax').forEach(function(elems, options) {
+            M.Parallax.init(elems);
+        })
+        //M.Parallax.init(document.querySelector('.parallax'))
     </script>
 </body>
 </html>
