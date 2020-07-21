@@ -9,9 +9,10 @@ So far, the primary source material for this app have come from two YouTube tuto
 In addition to the work guided by the tutorials, I have extended the functionality of the app in the following ways:
 - added Microsoft Azure Authentication (using Passport)
 - added an about page which included the opportunity to add new routes and practice templating with Handlebars
-- connect form to email which sends content to an address (planned)
-- add page which records audio and saves it to a file system, recording the saved path to MongoDB (planned)
-- create ability to generate a new page from a request and have the page address persist (planned)
+- create contact form which collects data and saves to db *(planned)*
+- connect form data to email which sends content to an address *(planned)*
+- add page which records audio and saves it to a file system, recording the saved path to MongoDB *(planned)*
+- create ability to generate a new page from a request and have the page address persist *(planned)*
 ## Technology used
 - Node.js 
 - Express.js 
