@@ -116,15 +116,15 @@
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus amet, repellat explicabo deleniti cum maxime aperiam itaque, asperiores provident in necessitatibus quisquam omnis fuga facilis blanditiis fugiat tenetur eum ullam.</p> 
             </div>
             <div class="col s12 l5 offset-l2">
-                <form action="">
+                <form id="contact-form" method="POST" action="/about">
                     <div class="input-field">
                         <i class="fas fa-envelope prefix"></i>
-                        <input type="email" id="email">
+                        <input type="email" name="email" id="email">
                         <label for="email">Your Email</label>
                     </div>
                     <div class="input-field">
                         <i class="fas fa-comment-alt prefix"></i>
-                        <textarea id="message" class="materialize-textarea"></textarea>
+                        <textarea name="message" id="message" class="materialize-textarea"></textarea>
                         <label for="message">Your Message</label>
                     </div>
                     <div class="input-field">

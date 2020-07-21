@@ -19,11 +19,11 @@ const ContactSchema = new mongoose.Schema({
         ref: 'User'
     },
     photography: {
-        type: checkbox,
+        type: Boolean,
         required: false
     },
     editing: {
-        type: checkbox,
+        type: Boolean,
         required: false
     },
     createdAt: {
