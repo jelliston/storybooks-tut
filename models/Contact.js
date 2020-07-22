@@ -10,9 +10,9 @@ const ContactSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    dateWanted: {
-        type: Date,
-        default: Date.now
+    datepicker: {
+        type: String,
+        ref: 'datepicker'
     },
     user: {
         type: mongoose.Schema.Types.ObjectId,
