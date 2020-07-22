@@ -10,6 +10,8 @@ In addition to the work guided by the tutorials, I have extended the functionali
 - added Microsoft Azure Authentication (using Passport)
 - added an about page which included the opportunity to add new routes and practice templating with Handlebars
 - create contact form which collects data and saves to db *(planned)*
+- create admin dashboard which displays data from form submissions *(planned)*
+- create admin user which has special permissions *(planned)*
 - connect form data to email which sends content to an address *(planned)*
 - add page which records audio and saves it to a file system, recording the saved path to MongoDB *(planned)*
 - create ability to generate a new page from a request and have the page address persist *(planned)*

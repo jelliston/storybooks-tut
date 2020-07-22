@@ -19,11 +19,13 @@ const ContactSchema = new mongoose.Schema({
         ref: 'User'
     },
     photography: {
-        type: Boolean,
+        type: String,
+        ref: 'photography',
         required: false
     },
     editing: {
-        type: Boolean,
+        type: String,
+        ref: 'editing',
         required: false
     },
     createdAt: {
