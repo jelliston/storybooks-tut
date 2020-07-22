@@ -9,7 +9,7 @@ So far, the primary source material for this app have come from two YouTube tuto
 In addition to the work guided by the tutorials, I have extended the functionality of the app in the following ways:
 - added Microsoft Azure Authentication (using Passport)
 - added an about page which included the opportunity to add new routes and practice templating with Handlebars
-- create contact form which collects data and saves to db *(planned)*
+- create contact form which collects data and saves to db
 - create admin dashboard which displays data from form submissions *(planned)*
 - create admin user which has special permissions *(planned)*
 - connect form data to email which sends content to an address *(planned)*
