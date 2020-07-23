@@ -60,10 +60,12 @@ router.post('/about', ensureAuth, async (req, res) => {
 //@route        GET /admin
 router.get('/admin', ensureAuth, async (req, res) => {
     try {
-        const contacts = await Contact.find().lean()
+        const contacts = await Contact.find()
+            .populate('user')
+            .sort({ createdAt: 'desc' })
+            .lean()
         //send text to client
         res.render('admin.hbs', {
-            name: req.user.firstName,
             contacts
         })
     } catch (err) {

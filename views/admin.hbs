@@ -19,14 +19,22 @@
             {{#each contacts}}
                 <tr>
                     {{! since we're in the loop it knows the '_id' and 'title' belongs to contacts}}
-                    <td>{{user}}</td>
+                    <td>{{user.displayName}}</td>
                     <td>{{email}}</td>
                     <td>{{message}}</td>
-                    <td>{{formatDate datepicker 'MMMM Do YYYY, h:mm:ss a'}}</td> {{!Check moment.js documentation for other formats}}
-                    <td>{{photography}}</td>
-                    <td><span class="dash-status">{{status}}</span></td>
+                    <td>{{datepicker}}</td>
                     <td>
-                        <a href="/stories/edit/{{_id}}" class="btn btn-float"><i class="fas fa-edit"></i></a>
+                        {{#if photography}}
+                        Yes
+                        {{/if}}
+                    </td>
+                    <td>
+                        {{#if editing}}
+                        Yes
+                        {{/if}}
+                    </td>
+                    <td>
+                        <a href="/stories/edit/{{_id}}" class="btn btn-float"><i class="fas fa-reply"></i></a>
 
                         <form action="/stories/{{_id}}" method="POST" id="delete-form">
                             <input type="hidden" name="_method" value="DELETE">
