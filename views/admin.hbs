@@ -1,0 +1,44 @@
+<h4>Admin</h4>
+<h3>Welcome {{name}}</h3>
+<p>Here are all the contact form submissions</p>
+
+{{#if contacts}}
+    <table>
+        <thead>
+            <tr>
+                <th>User name</th>
+                <th>Email</th>
+                <th>Message</th>
+                <th>Date wanted for meeting</th>
+                <th>Wants photography</th>
+                <th>Wants editing</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each contacts}}
+                <tr>
+                    {{! since we're in the loop it knows the '_id' and 'title' belongs to contacts}}
+                    <td>{{user}}</td>
+                    <td>{{email}}</td>
+                    <td>{{message}}</td>
+                    <td>{{formatDate datepicker 'MMMM Do YYYY, h:mm:ss a'}}</td> {{!Check moment.js documentation for other formats}}
+                    <td>{{photography}}</td>
+                    <td><span class="dash-status">{{status}}</span></td>
+                    <td>
+                        <a href="/stories/edit/{{_id}}" class="btn btn-float"><i class="fas fa-edit"></i></a>
+
+                        <form action="/stories/{{_id}}" method="POST" id="delete-form">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button type="submit" class="btn red">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+{{else}}
+<p>No one has filled out a contact form</p>
+{{/if}}

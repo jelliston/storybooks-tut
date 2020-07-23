@@ -56,4 +56,22 @@ router.post('/about', ensureAuth, async (req, res) => {
     } 
  })
 
+ //@description  Admin
+//@route        GET /admin
+router.get('/admin', ensureAuth, async (req, res) => {
+    try {
+        const contacts = await Contact.find().lean()
+        //send text to client
+        res.render('admin.hbs', {
+            name: req.user.firstName,
+            contacts
+        })
+    } catch (err) {
+        console.error(err)
+        res.render('error/500')
+    }
+    
+    
+})
+
 module.exports = router
