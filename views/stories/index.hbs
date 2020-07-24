@@ -16,7 +16,9 @@
                 <p>{{stripTags (truncate body 150)}}</p> {{!--handlebars will complete whats in the parens first then move outside--}}
                 <br>
                 <div class="chip">  {{!--in Materialize a chip is like a badge--}}
-                    <img src="{{user.image}}" alt="">
+                    {{#if user.image}}
+                        <img src="{{user.image}}" alt="">
+                    {{/if}}
                     {{!--Below route will show all stories of user--}}
                     <a href="/stories/user/{{user._id}}">{{user.displayName}}</a>
                 </div>
