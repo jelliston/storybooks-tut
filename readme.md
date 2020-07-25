@@ -11,7 +11,7 @@ In addition to the work guided by the tutorials, I have extended the functionali
 - added an about page which included the opportunity to add new routes and practice templating with Handlebars
 - create contact form which collects data and saves to db
 - create admin dashboard which displays data from form submissions
-- create admin user which can view panel and respond to contact forms with email *(planned)*
+- create admin user which can view admin dashboard and respond to contact forms with email; non-admin users will not be able to access the admin dashboard *(planned)*
 - add page which records audio and saves it to a file system, recording the saved path to MongoDB *(planned)*
 - create ability to generate a new page from a request and have the page address persist *(planned)*
 ## Technology used
