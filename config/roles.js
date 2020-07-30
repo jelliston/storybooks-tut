@@ -1,20 +1,19 @@
 const AccessControl = require("accesscontrol");
 const ac = new AccessControl();
 
-exports.roles = (function() {
+const roles = (function() {
   ac.grant("basic")
-    .readOwn("profile")
-    .updateOwn("profile")
-
-  ac.grant("teacher")
-    .extend("basic")
-    .readAny("profile")
 
   ac.grant("admin")
     .extend("basic")
-    .extend("teacher")
-    .updateAny("profile")
-    .deleteAny("profile")
+    .readAny("contactList")
 
   return ac;
 })();
+
+module.exports = roles
+
+
+// next steps 
+// 1) assign a role to a user at the beginning 
+// 2) add permission check on admin page GET route
